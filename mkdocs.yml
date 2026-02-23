@@ -98,6 +98,11 @@ plugins:
     - blog:
         blog_dir: blog
         blog_toc: true
+    - rss:
+        match_path: "blog/posts/.*"
+        date_from_meta:
+          as_creation: date.created
+          as_update: date.updated
 
 nav:
     - "Device guides":
