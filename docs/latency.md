@@ -115,9 +115,11 @@ Additionally, the physical rendering time of the frame that goes from the graphi
 We can assume that an **average of 10-20ms is added here** for decoding and other things, depending on the client's display frequency.
 
 
+-----
 ## Measuring the latency
 
 There is a simple way using a browser that allows to estimate the latency without taking into account the rendering time in the browser, and a more complex way using special equipment to accurately measure the latency.
+
 
 ### Browser-based method
 
@@ -139,3 +141,22 @@ Next, follow to PiKVM Web UI with Chrome or Chromium (other browsers can't handl
 ![Measured WebRTC Latency](latency/webrtc_latency.webp)
 
 As already mentioned, the measured value does not include the rendering and display time on the physical display with the browser. For 60Hz it will be +17ms, for 144Hz it will be +6ms. In both cases, you get a latency **around or less than 50ms**.
+
+
+### Local Screen-to-Screen metod
+
+```
++------= Host =-----+           +--= PiKVM =--+           +-----= Monitor =-----+
+| +-= Timer app =-+ |  HDMI IN  |             |  HDMI OUT |  +-= Timer app =-+  |
+| |               | |==========>|             |==========>|  |               |  |
+| |               | |  Cable 1  |             |  Cable 2  |  |               |  |
+| +---------------+ |           |             |           |  +---------------+  |
+| +-= Browser =-+   |           |             |           |  +-= Browser =-+    |
+| |             |   |  Network  |             |           |  |             |    |
+| |  PiKVM UI   |<--|<==========|             |           |  |  PiKVM UI   |    |
+| |             |   |           |             |           |  |             |    |
+| +-------------+   |           |             |           |  +-------------+    |
++-------------------+           +-------------+           +---------------------+
+```
+
+To measure Screen-to-Screen latency best possible way is to do screenshot when both base time source and PiKVM preview of the same base time source are on the same screen. After it's easy to get timestamps from screenshot and sabstruct one from another to get real latency. As base time source it's required to use some application able to show time with milliseconds, on Linux it can be "Stopwatch" application from Don Libes.
