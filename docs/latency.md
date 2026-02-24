@@ -115,7 +115,7 @@ Additionally, the physical rendering time of the frame that goes from the graphi
 We can assume that an **average of 10-20ms is added here** for decoding and other things, depending on the client's display frequency.
 
 
-## Measurement the latency
+## Measuring the latency
 
 There is a simple way using a browser that allows to estimate the latency without taking into account the rendering time in the browser, and a more complex way using special equipment to accurately measure the latency.
 
@@ -130,7 +130,7 @@ To use this method, it is necessary that the clocks on PiKVM and the client comp
 ```console
 # pacman -Syy
 # pacman -S chrony
-# systemctl stop systemd-networkd
+# systemctl stop systemd-timesyncd
 # systemctl start chrony
 ```
 
