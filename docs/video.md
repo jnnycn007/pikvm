@@ -21,7 +21,7 @@ video.
 
     * Good network: use `WebRTC` or `Direct` mode, set `H.264 gop = 0`.
 
-    * Bad network and `WebRTC` mode: Set `H.264 gop = 30`.
+    * Bad network and `WebRTC` mode: Set `H.264 gop = 60`.
 
     * Bad network and `Direct` mode: Set `H.264 gop = 0`.
 
@@ -37,6 +37,54 @@ video.
 
 * **H.264 gop** *(Group of Pictures)* - the number of frames between which a reference frame must be forcibly added.
     The recommended values are described above.
+
+
+-----
+## Boost PiKVM V4 to 60fps H.264
+
+By default, the performance of PiKVM in 1080p mode is limited to 30fps, but this limitation can be lifted.
+The result will be a slightly lower video latency and a full 60fps stream
+with a slight increase in processor temperature
+(it's not critical for both [V4 Plus and Mini](v4.md), as they have a very good cooling system).
+It will also double the consumption of network traffic.
+
+!!! warning "This is ONLY for PiKVM V4"
+
+    Don't try it on DIY or V3 devices.
+
+??? example "Enabling H.264 boost"
+
+    1. Perform OS updating and reboot:
+
+        {!_update_os.md!}
+
+    2. Switch filesystem to RW-mode:
+
+        ```console
+        [root@pikvm ~]# rw
+        ```
+
+    3. Add `gpu_freq=700` to `/boot/config.txt` as a separate line.
+
+    4. Enable H.264 boost:
+
+        ```console
+        [root@pikvm ~]# kvmd-override --set kvmd/streamer/h264_boost=true
+        ```
+
+    5. Optional: change default FPS limit from 30 to 60 with following command:
+
+        ```console
+        [root@pikvm ~]# kvmd-override --set kvmd/streamer/desired_fps/default=60
+        ```
+
+    6. Perform reboot:
+
+        ```console
+        [root@pikvm ~]# reboot
+        ```
+
+Please don't use the boost on [PiKVM V3](v3.md) and DIY devices.
 
 
 -----
