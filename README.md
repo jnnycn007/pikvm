@@ -102,7 +102,7 @@ All of them uses our common open source software stack.
 | **HDMI 1920x1080@60Hz** support<br>for better BIOS/UEFI compatibility        | ✅   | ✅          |   | ❌       |   | ❌         | ❌         |
 | **HDMI audio** capture                                                       | ✅   | ✅          |   | ✅       |   | ❌         | ❌         |
 | **Microphone emulation** for two-way audio                                   | ✅   | ✅          |   | ✅       |   | ❌         | ❌         |
-| **Super fast H.264 & MJPEG video:**<br>720p - 60fps, 1080p - 30fps for H.264 | ✅   | ✅          |   | ✅       |   | ✅         | ✅         |
+| **Super fast H.264 & MJPEG video:**<br>up to 1080p 60fps                     | ✅   | ✅          |   | ✅       |   | ✅         | ✅         |
 ||
 ||
 | <div align="center">⭐ ⭐ ⭐ **PERIPHERY** ⭐ ⭐ ⭐</div> | **V4 Plus** | **V4 Mini** |   |  **V3**  |   | **DIY V2** | **DIY V1** |
