@@ -12,6 +12,8 @@ hosted management service.
 Because PiKVM's root filesystem is read-only, NetBird requires an overlay
 filesystem so it can write runtime state without modifying the underlying disk.
 
+The origin of this guide can be found [here](https://netbird.io/knowledge-hub/netbird-on-pikvm).
+
 -----
 
 ## Setting up the overlay
