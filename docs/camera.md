@@ -105,9 +105,18 @@ When the host asks the PiKVM device to provide it with an image, the stream will
 -----
 ## Troubleshooting
 
+* If the stream is very unstable and dying, try “safe mode,” where the resolution is limited to 640x480
+    (and be sure to let us know about the problem):
+
+    ```console
+    [root@pikvm ~]# rw
+    [root@pikvm ~]# kvmd-override --set otg/devices/camera/safe=true
+    [root@pikvm ~]# reboot
+    ```
+
 * If the browser does not play sound or does not show multimedia submenu, try a different browser
     and/or incognito mode without extensions. Firefox and Google Chrome works best.
 
-* Check the log: `journalctl -u kvmd-janus` -u `ucamera`.
+* Check the log: `journalctl -u kvmd-janus -u ucamera`.
 
 * If nothing helped, please report about the problem [to our support](https://pikvm.org/support/)
