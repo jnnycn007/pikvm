@@ -70,6 +70,8 @@ This is more convenient, but for compatibility reasons it is disabled by default
         hid:
             mouse:
                 absolute: false
+            mouse_alt:
+                device: ""
     ```
 
 3. Perform `reboot`. After that reboot your PC.
@@ -82,6 +84,8 @@ This is more convenient, but for compatibility reasons it is disabled by default
             mouse:
                 absolute: false
                 horizontal_wheel: false
+            mouse_alt:
+                device: ""
     ```
 
 5. Don't forget to perform `reboot`.
